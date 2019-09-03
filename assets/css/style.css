@@ -13,6 +13,7 @@ h1 {
     font: 24px 'Roboto', sans-serif;
     font-weight: 500;
     color: #2D3A40;
+    margin: 50px 0 20px;
 }
 
 p,
@@ -68,6 +69,7 @@ a:hover {
 */
 
 .register-form {
+    margin: 50px 0 0;
     padding: 30px 25px 95px;
     background: #FFFFFF;
     box-shadow: 0px 4px 40px rgba(116, 130, 150, 0.2);
@@ -128,6 +130,11 @@ a:hover {
     border: 1px solid #14E298;
     border-radius: 3px;
     outline: none;
+    cursor: pointer;
+}
+
+.register-form__row input[type='submit']:hover {
+    background-color: #23F7AB;
 }
 
 .register-form__row>label span {
@@ -207,13 +214,45 @@ a:hover {
 
 .register-form__row__midia-list span {
     display: block;
-    font: 16px 'Roboto', sans-serif;
+    font: 14px 'Roboto', sans-serif;
     color: #2D3A40;
     padding: 5px;
 }
 
 .register-form__row__midia-list input:checked+span {
     background-color: #f5f4f4;
+}
+
+.-invalid::after {
+    width: 100%;
+    background: #F0175C;
+    font: 10px 'Roboto', sans-serif;
+    color: #FFF;
+    border-radius: 0 0 5px 5px;
+    left: 0;
+    top: 100%;
+    padding: 2px 10px;
+    box-sizing: border-box;
+}
+
+.-no-content::after {
+    position: absolute;
+    content: 'Este campo é obrigatório';
+}
+
+
+/*
+### Footer
+*/
+
+footer {
+    margin: 80px 0 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
 }
 
 @media (min-width: 768px) {
@@ -225,9 +264,12 @@ a:hover {
     }
     h1 {
         font-size: 32px;
+        margin: 60px 0 15px;
     }
     .limit {
         width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
         max-width: 940px;
     }
     .main-register .limit {
@@ -237,6 +279,24 @@ a:hover {
     ### Register-Form
     */
     .register-form {
+        margin: 70px 0 0;
         padding: 30px 170px 95px;
+    }
+    /*
+    ### Footer
+    */
+    footer {
+        border-top: none;
+    }
+    footer ul {
+        margin: 10px 0 20px;
+    }
+    footer ul li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+    footer nav {
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
     }
 }

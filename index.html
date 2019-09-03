@@ -8,6 +8,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="assets/js/jquery.mask.js"></script>
     <title>Teste Voxus</title>
 </head>
 
@@ -39,33 +40,33 @@
 
                 <span class="register-form__row side-by-side">
                     <span class="register-form__row__tel-flag">
-                            <a class="register-form__row__midia" href="#"><img src="assets/img/flag-brazil@2x.png" alt=""></a>
+                            <a id="list_flag" class="register-form__row__midia" href="#"><img src="assets/img/brasil.png" alt=""></a>
                             <div class="register-form__row__midia-list flags">
                                 <label>
-                                    <input name="midia" type="radio" value="Brasil">
-                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Brasil</span>
+                                    <input name="flag" type="radio" value="Brasil">
+                                    <span><img src="assets/img/brasil.png" alt=""> Brasil</span>
                 </label>
                 <label>
-                                    <input name="midia" type="radio" value="Dinamarca">
-                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Dinamarca</span>
+                                    <input name="flag" type="radio" value="Dinamarca">
+                                    <span><img src="assets/img/dinamarca.png" alt=""> Dinamarca</span>
                                 </label>
                 <label>
-                                    <input name="midia" type="radio" value="Espanha">
-                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Espanha</span>
+                                    <input name="flag" type="radio" value="Espanha">
+                                    <span><img src="assets/img/espanha.png" alt=""> Espanha</span>
                                 </label>
                 <label>
-                                    <input name="midia" type="radio" value="Reino Unido">
-                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Reino Unido</span>
+                                    <input name="flag" type="radio" value="Reino Unido">
+                                    <span><img src="assets/img/reinounido.png" alt=""> Reino Unido</span>
                                 </label>
                 <label>
-                                    <input name="midia" type="radio" value="Estados Unidos">
-                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Estados Unidos</span>
+                                    <input name="flag" type="radio" value="Estados Unidos">
+                                    <span><img src="assets/img/estadosunidos.png" alt=""> Estados Unidos</span>
                                 </label>
         </div>
         </span>
         <span class="register-form__row">
                             <label>    
-                                <input name="telefone" type="text">
+                                <input id="phone" name="telefone" type="text">
                                 <span>telefone</span>
         </label>
         </span>
@@ -86,9 +87,13 @@
         </span>
 
         <span class="register-form__row">
-                <a class="register-form__row__midia" href="#">Verba mensal em midia</a>
+                <a id="list_midia" class="register-form__row__midia" href="#">Verba mensal em midia</a>
                 <div class="register-form__row__midia-list">
-                    <label>
+                        <label>
+                                <input name="midia" type="radio" value="">
+                                <span>Verba mensal em midia</span>
+        </label>
+        <label>
                         <input name="midia" type="radio" value="<= R$5.000">
                         <span><= R$5.000</span>
         </label>
@@ -130,11 +135,11 @@
 
     <footer>
 
-        <nav>
+        <nav class="limit">
             <ul>
                 <li>
                     <a href="#">
-                        <img src="assets/img/logo.svg" alt="Voxus">
+                        <img src="assets/img/logo_gray.svg" alt="Voxus">
                     </a>
                 </li>
                 <li>
@@ -172,7 +177,7 @@
         })
 
         // List box Midia
-        jQuery('.register-form__row__midia').click(function() {
+        jQuery('#list_midia').click(function() {
             if (jQuery(this).hasClass('-active')) {
                 jQuery(this).removeClass('-active')
             } else {
@@ -181,11 +186,66 @@
             return false;
         })
 
-        jQuery('.register-form__row__midia').blur(function() {
 
-            jQuery('.register-form input[name="midia"]').change(function() {
-                jQuery('.register-form__row__midia').text(jQuery(this).val()).removeClass('-active')
+        jQuery('.register-form input[name="midia"]').change(function() {
+            jQuery('#list_midia').parents('.register-form__row').removeClass('-no-content -invalid')
+            jQuery('#list_midia').text(jQuery(this).val()).removeClass('-active')
+            alert(jQuery(this).val())
+        })
+
+
+
+        // List box Flag
+        jQuery('#list_flag').click(function() {
+            if (jQuery(this).hasClass('-active')) {
+                jQuery(this).removeClass('-active')
+            } else {
+                jQuery(this).addClass('-active')
+            }
+            return false;
+        })
+
+        jQuery('#list_flag').focusout(function() {
+
+            jQuery('.register-form input[name="flag"]').change(function() {
+                var img = jQuery('input[name="flag"]:checked + span img').attr('src')
+                jQuery('#list_flag img').attr('src', img)
+                jQuery('#list_flag').removeClass('-active')
             })
+
+        })
+
+        //Mask
+        jQuery('#phone').mask('(99) 99999-9999');
+
+
+        jQuery('form input').focusout(function() {
+            jQuery(this).parents('.register-form__row').removeClass('-no-content -invalid')
+        })
+
+        jQuery('input[type="submit"').click(function() {
+
+            if (jQuery(this).hasClass('disabled')) {
+
+                return false;
+
+            } else {
+
+                if (jQuery('form input').attr('value') == "" || jQuery('form input:cheched').attr('value') == "") {
+                    jQuery(this).parents('.register-form__row').addClass('-no-content -invalid')
+                    return false
+                } else {
+
+                    if (jQuery('.register-form__row').hasClass('-invalid')) {
+                        return false;
+                    } else {
+                        jQuery('input[type="submit"').addClass('disabled').val('Obrigado');
+                        return false;
+                    }
+
+                }
+
+            }
 
         })
 
