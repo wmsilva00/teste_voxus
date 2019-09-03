@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Teste Voxus</title>
+</head>
+
+<body>
+
+    <header class="header-register">
+        <div class="limit">
+            <a class="header-register__logo" href="#">
+                <img src="assets/img/logo.svg" alt="Voxus">
+            </a>
+        </div>
+    </header>
+
+    <div class="main-register">
+
+        <div class="limit">
+
+            <h1>Você está a poucos passos de otimizar suas campanhas!</h1>
+            <p>Queremos conhecer mais sobre sua empresa para melhorar sua experiência com a Voxus.</p>
+
+            <form class="register-form" action="#">
+
+                <span class="register-form__row">
+                    <label>
+                        <input name="name" type="text">
+                        <span>Nome Completo</span>
+                </label>
+                </span>
+
+                <span class="register-form__row side-by-side">
+                    <span class="register-form__row__tel-flag">
+                            <a class="register-form__row__midia" href="#"><img src="assets/img/flag-brazil@2x.png" alt=""></a>
+                            <div class="register-form__row__midia-list flags">
+                                <label>
+                                    <input name="midia" type="radio" value="Brasil">
+                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Brasil</span>
+                </label>
+                <label>
+                                    <input name="midia" type="radio" value="Dinamarca">
+                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Dinamarca</span>
+                                </label>
+                <label>
+                                    <input name="midia" type="radio" value="Espanha">
+                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Espanha</span>
+                                </label>
+                <label>
+                                    <input name="midia" type="radio" value="Reino Unido">
+                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Reino Unido</span>
+                                </label>
+                <label>
+                                    <input name="midia" type="radio" value="Estados Unidos">
+                                    <span><img src="assets/img/flag-brazil@2x.png" alt=""> Estados Unidos</span>
+                                </label>
+        </div>
+        </span>
+        <span class="register-form__row">
+                            <label>    
+                                <input name="telefone" type="text">
+                                <span>telefone</span>
+        </label>
+        </span>
+        </span>
+
+        <span class="register-form__row">
+                    <label>
+                        <input name="email" type="text">
+                        <span>Endereço de e-mail</span>
+        </label>
+        </span>
+
+        <span class="register-form__row">
+                    <label>
+                        <input name="url" type="text">
+                        <span>URL do site</span>
+        </label>
+        </span>
+
+        <span class="register-form__row">
+                <a class="register-form__row__midia" href="#">Verba mensal em midia</a>
+                <div class="register-form__row__midia-list">
+                    <label>
+                        <input name="midia" type="radio" value="<= R$5.000">
+                        <span><= R$5.000</span>
+        </label>
+        <label>
+                        <input name="midia" type="radio" value=">= R$5.001 e <= R$30.000">
+                        <span>>= R$5.001 e <= R$30.000</span>
+                    </label>
+        <label>
+                        <input name="midia" type="radio" value=">= R$30.001 e <= R$100.000">
+                        <span>>= R$30.001 e <= R$100.000</span>
+                    </label>
+        <label>
+                        <input name="midia" type="radio" value=">= R$100.001 e <= R$500.000">
+                        <span>>= R$100.001 e <= R$500.000</span>
+                    </label>
+        <label>
+                        <input name="midia" type="radio" value=">= R$500.001">
+                        <span>>= R$500.001</span>
+                    </label>
+        <label>
+                        <input name="midia" type="radio" value="Não se aplica">
+                        <span>Não se aplica</span>
+                    </label>
+    </div>
+    </span>
+
+    <span class="register-form__row">
+        <input type="submit" value="Experimentar gratuitamente">
+    </span>
+
+
+    </form>
+
+    <p>*Para usar o trial grátis você precisa ser um e-commerce e concordar com os termos e requisitos do trial gratuito. Saiba mais em: <a href="#">Termos e requisitos de trial gratuito</a></p>
+
+    </div>
+
+    </div>
+
+    <footer>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="assets/img/logo.svg" alt="Voxus">
+                    </a>
+                </li>
+                <li>
+                    <p>
+                        <a href="#">Termos de serviço</a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="#">Política de privacidade</a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="#">Opções de anúncio</a>
+                    </p>
+                </li>
+            </ul>
+        </nav>
+
+    </footer>
+
+</body>
+
+<script>
+    jQuery(function() {
+
+        // Analise de conteudo no formulario
+        jQuery('.register-form input').focusout(function() {
+            if (jQuery(this).val() != "") {
+                jQuery(this).siblings('span').addClass('-content');
+            } else {
+                jQuery(this).siblings('span').removeClass('-content');
+            }
+        })
+
+        // List box Midia
+        jQuery('.register-form__row__midia').click(function() {
+            if (jQuery(this).hasClass('-active')) {
+                jQuery(this).removeClass('-active')
+            } else {
+                jQuery(this).addClass('-active')
+            }
+            return false;
+        })
+
+        jQuery('.register-form__row__midia').blur(function() {
+
+            jQuery('.register-form input[name="midia"]').change(function() {
+                jQuery('.register-form__row__midia').text(jQuery(this).val()).removeClass('-active')
+            })
+
+        })
+
+
+    })
+</script>
+
+</html>

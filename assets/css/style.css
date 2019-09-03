@@ -1,0 +1,242 @@
+/*
+### Global
+*/
+
+body {
+    background: #F5F7FA url(../img/bg.svg) bottom center no-repeat;
+    background-size: 1000px;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font: 24px 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #2D3A40;
+}
+
+p,
+a {
+    font: 14px 'Roboto', sans-serif;
+    color: #748296;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #326fff;
+}
+
+.limit {
+    width: calc(100% - 40px);
+    max-width: 335px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*
+### Header
+*/
+
+.header-register {
+    width: 100%;
+    height: 50px;
+    background-color: #FFF;
+}
+
+.header-register__logo {
+    display: block;
+    padding: 18px 0 12px;
+}
+
+
+/*
+### Main-Register
+*/
+
+.main-register h1,
+.main-register p {
+    text-align: center;
+}
+
+
+/*
+### Register-Form
+*/
+
+.register-form {
+    padding: 30px 25px 95px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 40px rgba(116, 130, 150, 0.2);
+    border-radius: 3px;
+}
+
+.register-form__row {
+    display: block;
+    margin: 30px 0 30px;
+    position: relative;
+}
+
+.register-form__row:first-child {
+    margin: 0 0 30px;
+}
+
+.register-form__row.side-by-side {
+    white-space: nowrap;
+}
+
+.register-form__row.side-by-side .register-form__row__tel-flag {
+    display: inline-block;
+    width: 60px;
+    margin: 0;
+}
+
+.register-form__row.side-by-side .register-form__row {
+    display: inline-block;
+    width: calc(100% - 57px);
+    margin: 0 0 0 -5px;
+}
+
+.register-form__row input {
+    width: 100%;
+    padding: 0 20px;
+    font: 16px 'Roboto', sans-serif;
+    line-height: 40px;
+    background: transparent;
+    color: #2D3A40;
+    border: 1px solid rgba(116, 130, 150, 0.2);
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: none;
+    z-index: 1;
+}
+
+.register-form__row input[type='submit'] {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    font: 16px 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: 40px;
+    background: #14E298;
+    color: #FFF;
+    border: 1px solid #14E298;
+    border-radius: 3px;
+    outline: none;
+}
+
+.register-form__row>label span {
+    font: 16px 'Roboto', sans-serif;
+    position: absolute;
+    color: rgba(45, 58, 64, 0.3);
+    left: 20px;
+    top: 50%;
+    line-height: 1em;
+    transform: translate(0, -50%);
+    background-color: #fff;
+    padding: 0 5px;
+    transition: all 0.3s;
+    z-index: 0;
+    cursor: text;
+}
+
+.register-form__row input:focus~span,
+.register-form__row span.-content {
+    color: #2D3A40;
+    top: 0px;
+    left: 5px;
+    font-size: 14px;
+    z-index: 1;
+    cursor: context-menu;
+}
+
+.register-form__row__midia {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    font: 16px 'Roboto', sans-serif;
+    line-height: 40px;
+    color: rgba(45, 58, 64, 0.3);
+    border: 1px solid rgba(116, 130, 150, 0.2);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.register-form__row__midia:hover {
+    color: rgba(45, 58, 64, 0.3);
+}
+
+.register-form__row__midia.-active+.register-form__row__midia-list {
+    display: block;
+}
+
+.register-form__row__midia-list {
+    position: absolute;
+    display: none;
+    width: 100%;
+    border: 1px solid rgba(116, 130, 150, 0.2);
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 0 20px;
+    margin: 5px 0 0;
+    background-color: #FFF;
+    z-index: 1;
+}
+
+.register-form__row__midia-list.flags {
+    width: auto;
+}
+
+.register-form__row__midia-list label {
+    display: block;
+    margin: 5px 0;
+}
+
+.register-form__row__midia-list span {
+    font: 16px 'Roboto', sans-serif;
+}
+
+.register-form__row__midia-list input {
+    display: none;
+}
+
+.register-form__row__midia-list span {
+    display: block;
+    font: 16px 'Roboto', sans-serif;
+    color: #2D3A40;
+    padding: 5px;
+}
+
+.register-form__row__midia-list input:checked+span {
+    background-color: #f5f4f4;
+}
+
+@media (min-width: 768px) {
+    /*
+    ### Global
+    */
+    body {
+        background-size: auto;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    .limit {
+        width: 100%;
+        max-width: 940px;
+    }
+    .main-register .limit {
+        max-width: 620px;
+    }
+    /*
+    ### Register-Form
+    */
+    .register-form {
+        padding: 30px 170px 95px;
+    }
+}
