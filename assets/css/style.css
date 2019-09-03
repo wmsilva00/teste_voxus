@@ -69,7 +69,7 @@ a:hover {
 */
 
 .register-form {
-    margin: 50px 0 0;
+    margin: 50px 0 30px;
     padding: 30px 25px 95px;
     background: #FFFFFF;
     box-shadow: 0px 4px 40px rgba(116, 130, 150, 0.2);
@@ -127,7 +127,7 @@ a:hover {
     line-height: 40px;
     background: #14E298;
     color: #FFF;
-    border: 1px solid #14E298;
+    border: 2px solid #14E298;
     border-radius: 3px;
     outline: none;
     cursor: pointer;
@@ -135,6 +135,12 @@ a:hover {
 
 .register-form__row input[type='submit']:hover {
     background-color: #23F7AB;
+}
+
+.register-form__row input[type='submit'].disabled {
+    background-color: transparent;
+    color: #14E298;
+    border-color: #14E298;
 }
 
 .register-form__row>label span {
@@ -172,6 +178,7 @@ a:hover {
     border: 1px solid rgba(116, 130, 150, 0.2);
     box-sizing: border-box;
     border-radius: 3px;
+    background: url(../img/seta.png) right 10px top 50% no-repeat;
 }
 
 .register-form__row__midia:hover {
@@ -235,10 +242,26 @@ a:hover {
     box-sizing: border-box;
 }
 
+.register-form__alert {
+    font: 14px 'Roboto', sans-serif;
+    color: #2D3A40;
+    background-color: #F5F7FA;
+    padding: 10px 20px;
+    position: absolute;
+    display: none;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.register-form__alert.-is-active{
+    display: block;
+}
+
 .-no-content::after {
     position: absolute;
     content: 'Este campo é obrigatório';
 }
+
+
 
 
 /*
@@ -279,8 +302,8 @@ footer ul {
     ### Register-Form
     */
     .register-form {
-        margin: 70px 0 0;
-        padding: 30px 170px 95px;
+        margin: 70px 0 40px;
+        padding: 30px 155px 95px;
     }
     /*
     ### Footer
